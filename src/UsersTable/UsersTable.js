@@ -1,7 +1,6 @@
 import Users from "../Users/Users";
 import Pagination from "../Pagination/Pagination";
 import { Table, Row, Col } from "react-bootstrap";
-import ReactPaginate from "react-paginate";
 function UsersTable({
   currentPageData,
   pageCount,
