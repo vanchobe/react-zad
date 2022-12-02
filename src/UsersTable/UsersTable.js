@@ -1,4 +1,5 @@
 import Users from "../Users/Users";
+import Pagination from "../Pagination/Pagination";
 import { Table, Row, Col } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 function UsersTable({
@@ -11,6 +12,11 @@ function UsersTable({
     <>
       <Row>
         <Col xs={12} md={12}>
+        <Pagination
+            pageCount={pageCount}
+            activePage={activePage}
+            handlePageClick={handlePageClick}
+          />
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -43,24 +49,11 @@ function UsersTable({
               );
             })}
           </Table>
-          {pageCount > 1 ? (
-            <ReactPaginate
-              previousLabel={"Prev"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              initialSelected={activePage}
-              breakClassName={"break-me"}
-              pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}
-            />
-          ) : (
-            ""
-          )}
+          <Pagination
+            pageCount={pageCount}
+            activePage={activePage}
+            handlePageClick={handlePageClick}
+          />
         </Col>
       </Row>
     </>
