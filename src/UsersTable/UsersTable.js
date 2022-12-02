@@ -11,11 +11,6 @@ function UsersTable({
     <>
       <Row>
         <Col xs={12} md={12}>
-        <Pagination
-            pageCount={pageCount}
-            activePage={activePage}
-            handlePageClick={handlePageClick}
-          />
           <Table striped bordered hover>
             <thead>
               <tr>
