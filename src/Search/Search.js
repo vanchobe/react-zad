@@ -1,25 +1,20 @@
-import { Form} from 'react-bootstrap';
-import { useState, useEffect } from "react";
-function Search({data}) {
-  const [ inputValue, setInputValue ] = useState('');
-
-  const handleInput = ({ target: { value }}) => {
-    if (value === "") setInputValue('');
-   setInputValue(value);
-  };
-  const filteredValues = data.filter(user => {
-    if(user.nameFirst.includes(inputValue) || user.nameLast.includes(inputValue)){
-      return user
-    }
-  })
-
+import { Form } from "react-bootstrap";
+function Search({ handleInput, input }) {
   return (
     <>
-
+      <Form className="col-md-12">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label></Form.Label>
+          <Form.Control
+            type="keyword"
+            onChange={handleInput}
+            value={input}
+            placeholder="Enter Keyword"
+          />
+        </Form.Group>
+      </Form>
     </>
   );
 }
 
 export default Search;
-
-
